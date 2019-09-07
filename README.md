@@ -48,7 +48,9 @@ This package allows you to use `queueMicrotask` safely in all JS engines. Use it
 
 ## Why not use `process.nextTick`?
 
-In Node, `queueMicrotask` and `process.nextTick` are [essentially equivalent](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback). If you just need to support Node 10+, you can use `queueMicrotask` directly. If you need to support all versions of Node, you can use `process.nextTick`.
+In Node, `queueMicrotask` and `process.nextTick` are [essentially equivalent](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback).
+
+If you just need to support Node 12 and later, use `queueMicrotask` directly. If you need to support all versions of Node, use `process.nextTick`.
 
 If you also need browser support, read on.
 
