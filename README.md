@@ -56,7 +56,7 @@ If you also need browser support, read on.
 
 ## Why not use `setTimeout(fn, 0)`?
 
-This approach is the most compatible, but it has many problems. Modern browsers throttle timers severely, so `setTimeout(…, 0)` usually takes at least 4ms to run. If you have many `setTimeout` calls, then this can severely limit the performance of your program.
+This approach is the most compatible, but it has problems. Modern browsers throttle timers severely, so `setTimeout(…, 0)` usually takes at least 4ms to run. Furthermore, the throttling gets even worse if the page is backgrounded. If you have many `setTimeout` calls, then this can severely limit the performance of your program.
 
 ## Why not use a microtask library like [`immediate`](https://github.com/calvinmetcalf/immediate) or [`asap`](https://www.npmjs.com/package/asap)?
 
