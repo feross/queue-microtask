@@ -15,8 +15,8 @@
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
 - Optimal performance in all modern environments.
   - Use `queueMicrotask` in modern environments (optimal)
-  - Fallback to `process.nextTick` in Node.js 10 and earlier (optimal)
-  - Fallback to `setTimeout` in old browsers (slow)
+  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier (optimal)
+  - Fallback to `setTimeout` in old browsers without `Promise` (slow)
 
 ## install
 
@@ -34,11 +34,13 @@ queueMicrotask(() => { /* this will run soon */ })
 
 ## What is `queueMicrotask` and why would one use it?
 
-The `queueMicrotask` function is a WHATWG standard. It queues a microtask to be executed prior to control returning to the event loop. It is analogous to Node's [`process.nextTick`](https://nodejs.org/api/process.html#process_process_nexttick_callback_args).
+The `queueMicrotask` function is a WHATWG standard. It queues a microtask to be executed prior to control returning to the event loop.
 
 A microtask is a short function which will run after the current task has completed its work and when there is no other code waiting to be run before control of the execution context is returned to the event loop.
 
-This lets code run without interfering with any other, potentially higher priority, code that is pending, but before the JS engine regains control over the execution context.
+The code `queueMicrotask(fn)` is equivalent to the code `Promise.resolve().then(fn)`. It is also very similar to [`process.nextTick(fn)`](https://nodejs.org/api/process.html#process_process_nexttick_callback_args) in Node.
+
+Using microtasks lets code run without interfering with any other, potentially higher priority, code that is pending, but before the JS engine regains control over the execution context.
 
 See the [spec](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#microtask-queuing) or [Node documentation](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback) for more information.
 
@@ -48,11 +50,9 @@ This package allows you to use `queueMicrotask` safely in all JS engines. Use it
 
 ## Why not use `process.nextTick`?
 
-In Node, `queueMicrotask` and `process.nextTick` are [essentially equivalent](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback).
+In Node, `queueMicrotask` and `process.nextTick` are [essentially equivalent](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback), though there are [subtle differences](https://github.com/YuzuJS/setImmediate#macrotasks-and-microtasks) that don't matter in most situations.
 
-If you just need to support Node 12 and later, use `queueMicrotask` directly. If you need to support all versions of Node, use `process.nextTick`.
-
-If you also need browser support, read on.
+If you just need to support Node 12 and later, use `queueMicrotask` directly. If you need to support all versions of Node, use this package.
 
 ## Why not use `setTimeout(fn, 0)`?
 
@@ -66,9 +66,7 @@ This package (`queue-microtask`) is four times smaller than `immediate`, twice a
 
 Note: This package does not have proper microtask support in old browsers. Instead, old browsers fallback to `setTimeout`. This will be slower, but it allows us to avoid include a complicated solution.
 
-Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge (canary), **the vast majority of users will get the optimal experience**. Node users also always get the optimal experience since Node 12 has `queueMicrotask` and older versions have `process.nextTick`, which has equivalent performance to `queueMicrotask`.
-
-If you need optimal performance in old browsers, use one of the alternative packages.
+Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge (canary), **the vast majority of users will get the optimal experience**. Any JS environment with `Promise`, which is almost all of them, also get the optimal experience. If you need optimal performance in old browsers, use one of the alternative packages.
 
 ## What is a shim?
 
