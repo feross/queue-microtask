@@ -32,13 +32,13 @@ const queueMicrotask = require('queue-microtask')
 queueMicrotask(() => { /* this will run soon */ })
 ```
 
-## What is the `queueMicrotask` function?
+## What is `queueMicrotask` and why would one use it?
 
-The `queueMicrotask` function queues a microtask to be executed prior to control returning to the event loop. It is analogous to Node's [`process.nextTick`](https://nodejs.org/api/process.html#process_process_nexttick_callback_args).
+The `queueMicrotask` function is a WHATWG standard. It queues a microtask to be executed prior to control returning to the event loop. It is analogous to Node's [`process.nextTick`](https://nodejs.org/api/process.html#process_process_nexttick_callback_args).
 
 A microtask is a short function which will run after the current task has completed its work and when there is no other code waiting to be run before control of the execution context is returned to the event loop.
 
-This lets your code run without interfering with any other, potentially higher priority, code that is pending, but before the JS engine regains control over the execution context, potentially depending on work you need to complete.
+This lets code run without interfering with any other, potentially higher priority, code that is pending, but before the JS engine regains control over the execution context.
 
 See the [spec](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.html#microtask-queuing) or [Node documentation](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback) for more information.
 
