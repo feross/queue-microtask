@@ -13,7 +13,8 @@
 
 - Use `queueMicrotask` in all JS engines.
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
-- Optimal performance in Node and all modern browsers.
+- Optimal performance in all modern environments.
+  - Use `queueMicrotask` in modern environments (optimal)
   - Fallback to `process.nextTick` in Node.js 10 and earlier (optimal)
   - Fallback to `setTimeout` in old browsers (slow)
 
