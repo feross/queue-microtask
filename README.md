@@ -11,10 +11,11 @@
 
 ### fast, tiny `queueMicrotask` shim for modern engines
 
+- Use `queueMicrotask` in all JS engines.
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
-- Use `queueMicrotask` safely in all JS engines
-- Fallback to `process.nextTick` in Node.js 10 and earlier
-- Fallback to `setTimeout` in old browsers
+- Optimal performance in Node and all modern browsers.
+  - Fallback to `process.nextTick` in Node.js 10 and earlier (optimal)
+  - Fallback to `setTimeout` in old browsers (slow)
 
 ## install
 
