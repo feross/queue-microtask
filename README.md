@@ -9,9 +9,9 @@
 [standard-image]: https://img.shields.io/badge/code_style-standard-brightgreen.svg
 [standard-url]: https://standardjs.com
 
-### fast, tiny `queueMicrotask` shim for modern engines
+### fast, tiny [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) shim for modern engines
 
-- Use `queueMicrotask` in all JS engines.
+- Use [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) in all JS engines.
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
 - Optimal performance in all modern environments.
   - Use `queueMicrotask` in modern environments (optimal)
