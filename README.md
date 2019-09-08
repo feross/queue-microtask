@@ -64,7 +64,7 @@ These packages are great! However, if you prioritize small JS bundle size over o
 
 This package (`queue-microtask`) is four times smaller than `immediate`, twice as small as `asap`, and twice as small as using `process.nextTick` and letting the browser bundler shim it automatically.
 
-Note: This package does not have proper microtask support in old browsers. Instead, old browsers fallback to `setTimeout`. This will be slower, but it allows us to avoid include a complicated solution.
+Note: This package does not have proper microtask support in old browsers. Instead, old browsers fallback to `setTimeout`. This will be slower, but it allows us to avoid including a complicated solution.
 
 Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge (canary), **the vast majority of users will get the optimal experience**. Any JS environment with `Promise`, which is almost all of them, also get the optimal experience. If you need optimal performance in old browsers, use one of the alternative packages.
 
