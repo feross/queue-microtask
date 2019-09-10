@@ -12,7 +12,8 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "standard": "*"
+    "standard": "*",
+    "tape": "^4.11.0"
   },
   "homepage": "https://github.com/feross/queue-microtask",
   "keywords": [
@@ -36,6 +37,6 @@
     "url": "git://github.com/feross/queue-microtask.git"
   },
   "scripts": {
-    "test": "standard"
+    "test": "standard && tape test/*.js"
   }
 }
