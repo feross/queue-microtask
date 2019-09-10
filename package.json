@@ -1,7 +1,7 @@
 {
   "name": "queue-microtask",
   "description": "fast, tiny `queueMicrotask` shim for modern engines",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
