@@ -1,9 +1,8 @@
-let resolvedPromise
+let promise
 
 module.exports = typeof queueMicrotask === 'function'
   ? queueMicrotask
-  : (typeof Promise === 'function' ? (resolvedPromise = Promise.resolve()) : false)
-    ? cb => resolvedPromise
-      .then(cb)
-      .catch(err => setTimeout(() => { throw err }, 0))
-    : cb => setTimeout(cb, 0)
+  // reuse resolved promise, and allocate it lazily
+  : cb => (promise || (promise = Promise.resolve()))
+    .then(cb)
+    .catch(err => setTimeout(() => { throw err }, 0))
