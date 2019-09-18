@@ -15,8 +15,8 @@
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
 - Optimal performance in all modern environments.
   - Use `queueMicrotask` in modern environments (optimal)
-  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier (optimal)
-  - Fallback to `setTimeout` in old browsers without `Promise` (slow)
+  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier, and old browsers (optimal)
+  - Fallback to `setTimeout` in JS environments without `Promise` (slow)
 
 ## install
 
