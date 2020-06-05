@@ -1,3 +1,4 @@
+/*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 let promise
 
 module.exports = typeof queueMicrotask === 'function'
