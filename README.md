@@ -66,7 +66,7 @@ This package (`queue-microtask`) is four times smaller than `immediate`, twice a
 
 Note: This package does not have proper microtask support in old browsers. Instead, old browsers fallback to `setTimeout`. This will be slower, but it allows us to avoid including a complicated solution.
 
-Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge (canary), **the vast majority of users will get the optimal experience**. Any JS environment with `Promise`, which is almost all of them, also get the optimal experience. If you need optimal performance in old browsers, use one of the alternative packages.
+Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge, **the vast majority of users will get the optimal experience**. Any JS environment with `Promise`, which is almost all of them, also get the optimal experience. If you need optimal performance in old browsers, use one of the alternative packages.
 
 ## What is a shim?
 
