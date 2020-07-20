@@ -13,7 +13,7 @@
   "dependencies": {},
   "devDependencies": {
     "standard": "*",
-    "tape": "^4.11.0"
+    "tape": "^5.0.1"
   },
   "homepage": "https://github.com/feross/queue-microtask",
   "keywords": [
