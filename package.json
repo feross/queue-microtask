@@ -32,6 +32,7 @@
   ],
   "license": "MIT",
   "main": "index.js",
+  "module": "index.mjs",
   "repository": {
     "type": "git",
     "url": "git://github.com/feross/queue-microtask.git"
