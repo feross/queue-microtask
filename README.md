@@ -11,12 +11,11 @@
 
 ### fast, tiny [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) shim for modern engines
 
-- Use [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) in all JS engines.
+- Use [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) in all modern JS engines.
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
 - Optimal performance in all modern environments.
-  - Use `queueMicrotask` in modern environments (optimal)
-  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier, and old browsers (optimal)
-  - Fallback to `setTimeout` in JS environments without `Promise` (slow)
+  - Uses `queueMicrotask` in modern environments (optimal performance)
+  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier, and old browsers (optimal performance)
 
 ## install
 
@@ -46,7 +45,7 @@ See the [spec](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.ht
 
 ## Who is this package for?
 
-This package allows you to use `queueMicrotask` safely in all JS engines. Use it if you prioritize small JS bundle size over optimal performance in old browsers.
+This package allows you to use `queueMicrotask` safely in all modern JS engines. Use it if you prioritize small JS bundle size over support for old browsers.
 
 ## Why not use `process.nextTick`?
 
@@ -64,9 +63,9 @@ These packages are great! However, if you prioritize small JS bundle size over o
 
 This package (`queue-microtask`) is four times smaller than `immediate`, twice as small as `asap`, and twice as small as using `process.nextTick` and letting the browser bundler shim it automatically.
 
-Note: This package does not have proper microtask support in old browsers. Instead, old browsers fallback to `setTimeout`. This will be slower, but it allows us to avoid including a complicated solution.
+Note: This package throws an exception in JS environments which lack `Promise` support -- which are usually very old browsers and Node.js versions.
 
-Since the `queueMicrotask` API is supported in Chrome, Firefox, Safari, Opera, and Edge, **the vast majority of users will get the optimal experience**. Any JS environment with `Promise`, which is almost all of them, also get the optimal experience. If you need optimal performance in old browsers, use one of the alternative packages.
+Since the `queueMicrotask` API is supported in Node.js, Chrome, Firefox, Safari, Opera, and Edge, **the vast majority of users will get optimal performance**. Any JS environment with `Promise`, which is almost all of them, also get optimal performance. If you need support for JS environments which lack `Promise` support, use one of the alternative packages.
 
 ## What is a shim?
 
