@@ -26,7 +26,7 @@ test('error handling', t => {
 
   function onUncaughtException (err) {
     t.equal(err.message, 'some error')
-    process.off('uncaughtException', onUncaughtException)
+    process.removeListener('uncaughtException', onUncaughtException)
   }
 
   queueMicrotask(() => {
