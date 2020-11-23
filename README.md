@@ -47,11 +47,13 @@ See the [spec](https://html.spec.whatwg.org/multipage/timers-and-user-prompts.ht
 
 This package allows you to use `queueMicrotask` safely in all modern JS engines. Use it if you prioritize small JS bundle size over support for old browsers.
 
+If you just need to support Node 12 and later, use `queueMicrotask` directly. If you need to support all versions of Node, use this package.
+
 ## Why not use `process.nextTick`?
 
 In Node, `queueMicrotask` and `process.nextTick` are [essentially equivalent](https://nodejs.org/api/globals.html#globals_queuemicrotask_callback), though there are [subtle differences](https://github.com/YuzuJS/setImmediate#macrotasks-and-microtasks) that don't matter in most situations.
 
-If you just need to support Node 12 and later, use `queueMicrotask` directly. If you need to support all versions of Node, use this package.
+You can think of `queueMicrotask` as a standardized version of `process.nextTick` that works in the browser. No need to rely on your browser bundler to shim `process` for the browser environment.
 
 ## Why not use `setTimeout(fn, 0)`?
 
