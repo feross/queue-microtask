@@ -13,9 +13,9 @@
 
 - Use [`queueMicrotask`](https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/queueMicrotask) in all modern JS engines.
 - No dependencies. Less than 10 lines. No shims or complicated fallbacks.
-- Optimal performance in all modern environments.
-  - Uses `queueMicrotask` in modern environments (optimal performance)
-  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier, and old browsers (optimal performance)
+- Optimal performance in all modern environments
+  - Uses `queueMicrotask` in modern environments
+  - Fallback to `Promise.resolve().then(fn)` in Node.js 10 and earlier, and old browsers (same performance as `queueMicrotask`)
 
 ## install
 
