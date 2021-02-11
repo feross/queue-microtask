@@ -2,9 +2,9 @@
 let promise
 
 function getGlobalObject() {
-  if (typeof globalThis === 'object') return globalThis;
-  if (typeof window !== 'undefined') return window;
-  return global;
+  if (typeof globalThis === 'object') return globalThis
+  if (typeof window !== 'undefined') return window
+  return global
 }
 
 module.exports = typeof queueMicrotask === 'function'
