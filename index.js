@@ -1,7 +1,7 @@
 /*! queue-microtask. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 let promise
 
-function getGlobalObject() {
+function getGlobalObject () {
   if (typeof globalThis === 'object') return globalThis
   if (typeof window !== 'undefined') return window
   return global
