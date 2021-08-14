@@ -7,12 +7,13 @@
     "email": "feross@feross.org",
     "url": "https://feross.org"
   },
+  "type": "module",
   "bugs": {
     "url": "https://github.com/feross/queue-microtask/issues"
   },
   "devDependencies": {
     "standard": "*",
-    "tape": "^5.2.2"
+    "tape": "^5.3.1"
   },
   "funding": [
     {
