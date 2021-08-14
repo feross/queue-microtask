@@ -1,5 +1,5 @@
-const test = require('tape')
-const queueMicrotask = require('../')
+import test from 'tape'
+import queueMicrotask from '../index.js'
 
 test('basic test', t => {
   t.plan(1)
